@@ -1,0 +1,108 @@
+
+.top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+//rgb(204, 209, 209);
+
+    .left{
+        flex:0.2;
+        background-color: #f0f5f5;
+        height:100vh;
+        }
+    .middle{
+        flex: 0.6;
+        background-color: rgb(255, 255, 255);
+        height:100vh;
+    
+     
+        h2{
+            color: #0A74BC;
+            font-weight: 600;
+            text-align: center;
+            padding: 10px;
+        }
+        .middle_div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 156, 188, 0.06);
+
+           .please{
+            color: #000;
+            font-weight: 500;
+            text-align: center;
+            padding: 10px;
+           }
+
+           p{
+            text-align: center;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            color: #000;
+           }
+
+           .card{
+          
+            width: 40%;
+            height: 300px;
+            margin-top: 10px;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 4px  rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-content: space-around;
+            
+
+        
+            .textLabel{
+                padding-bottom:70px;
+            }
+
+            .button{
+                width:60px;
+                height:50px;
+                background:#0A9CBC;
+                box-shadow:0px 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius:50%;
+                border: none;
+                top: 267px;
+                color: #FFFFFF;
+                font-size:large;
+
+            }
+           
+        }
+
+        //    .imgDiv{
+        //         width: 70%;
+        //         height: 20%;
+     
+            }
+
+            .aboutUs{             
+                border:solid black 1px;
+                padding:30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;       
+        }
+    }
+
+    .right{
+        flex: 0.2;
+        background-color:#f0f5f5;
+        height: 100vh;
+    }
+}
+ 
