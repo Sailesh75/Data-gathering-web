@@ -3,10 +3,8 @@ import './landingpage.scss'
 import { BsMic} from "react-icons/bs";
 import ReactPlayer from 'react-player';
 
-
 const LandingPage = () => {
   return (
-   
         <div className="top">
             <div className="left">
                 {/* <p>Hellow</p> */}
@@ -17,8 +15,9 @@ const LandingPage = () => {
                     <h2 className='please'>Please</h2>
                     <p>Read and record the text below.</p>
                     <div className="card">
-                        <p className='textLabel'>हामीले  हामीलाई एउटा मद्दत</p>
+                        <p className='textLabel'>हामीले  हामीलाई एउटा मद्दत </p>
                         <button  
+                        // style={{onClick? }}
                         onClick={()=>{console.log('clicked!!')}} 
                         className='button'>
                             <BsMic/>
@@ -36,8 +35,9 @@ const LandingPage = () => {
                         }}>About Us</h3>
 
                     <ReactPlayer
-                    style={{paddingBottom:20}}
-                    width='70%'
+                    // style={{paddingBottom:20}}
+                    width='90%'
+                    className='video'
                     url='https://www.youtube.com/watch?v=LXb3EKWsInQ'/>
                     {/* <iframe src='https://www.youtube.com/watch?v=LXb3EKWsInQ'></iframe> */}
                     <p>What is this data gathering app?
@@ -54,12 +54,9 @@ const LandingPage = () => {
                     </p>
                 </div>
             </div>
-
             <div className="right">
-
             </div>
-        </div>
-          
+        </div>      
   )
 }
 
