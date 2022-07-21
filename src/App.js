@@ -1,11 +1,13 @@
-import LandingPage from "./component/LandingPage";
-// import Recording from "./component/Recording";
+// import LandingPage from "./component/LandingPage";
+// import Recording from "./component/Recording/Recording";
+import Test from "./component/Test/Test";
 
 function App() {
   return (
     <div className="App">
-     <LandingPage/>
+     {/* <LandingPage/> */}
      {/* <Recording/> */}
+     <Test/>
     </div>
   );
 }
