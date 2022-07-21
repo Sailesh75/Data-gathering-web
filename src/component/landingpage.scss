@@ -5,17 +5,10 @@
     align-items: center;
     justify-content: center;
 
-//rgb(204, 209, 209);
-
     .left{
         flex:0.2;
         background-color: #f0f5f5;
         height:100vh;
-        //  @media (max-width:700px) {
-        // background-color: #0A74BC;  
-        // background-color: #f0f5f5;
-        // flex: 0;   
-        // }
 
         }
     .middle{
@@ -33,7 +26,7 @@
             color: #0A74BC;
             font-weight: 600;
             text-align: center;
-            padding: 10px;
+            padding:15px;
         }
         .middle_div{
             display: flex;
@@ -75,39 +68,39 @@
 
             @media(max-width:1000px){
                 width:65%;
-                overflow: scroll;
+                // overflow: scroll;
 
             }
                 
             .textLabel{
-                padding-bottom:70px;
+                margin:30px;
+                // padding-bottom:70px;
             }
 
             .button{
-                width:60px;
-                height:50px;
+                // padding:30px;
+                margin:40px;
+                padding:20px;
                 background:#0A9CBC;
                 box-shadow:0px 4px 8px rgba(0, 0, 0, 0.2);
                 border-radius:50%;
-                border: none;
-                top: 267px;
+                border: solid 1px #087891;
+                // border: none;
                 color: #FFFFFF;
                 font-size:large;
-            
-
             }
-           
+            .mic{
+                height:25px;
+                width:25px;
+            }  
         }
-
         //    .imgDiv{
         //         width: 70%;
         //         height: 20%;
-     
             }
-
             .aboutUs{             
                 // border:solid black 1px;
-                padding:30px;
+                padding:20px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -116,7 +109,10 @@
                 .video{
                     padding-bottom:20px;
                     width:70vw;
-
+                }
+                .aboutText{
+                    width:90%;
+                    line-height:30px;
                 }
         }
     }
