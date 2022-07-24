@@ -1,13 +1,13 @@
-// import LandingPage from "./component/LandingPage";
-// import Recording from "./component/Recording/Recording";
+import LandingPage from "./component/LandingPage";
 import Test from "./component/Test/Test";
+// import Hook from "./component/TestDOM/Hook";
 
 function App() {
   return (
     <div className="App">
-     {/* <LandingPage/> */}
-     {/* <Recording/> */}
-     <Test/>
+        <LandingPage/>
+        <Test/>
+        {/* <Hook/> */}
     </div>
   );
 }

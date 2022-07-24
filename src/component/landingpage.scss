@@ -4,23 +4,20 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: #f0f5f5;
 
     .left{
         flex:0.2;
-        background-color: #f0f5f5;
-        height:100vh;
-
         }
+
     .middle{
         flex: 0.6;
         background-color: rgb(255, 255, 255);
-        height:100vh;
-        @media (max-width:1000px) {
-            
+        margin-bottom:20px;
+        @media (max-width:1000px) {  
             position: fixed;
             width:100vw;
-            overflow: scroll;
-            
+            overflow: scroll;      
         }
         h2{
             color: #0A74BC;
@@ -33,7 +30,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: rgba(10, 156, 188, 0.06);
+            background: rgba(10, 156, 188, 0.09);
 
            .please{
             color: #000;
@@ -51,7 +48,6 @@
            }
 
            .card{
-          
             width: 40%;
             height: 300px;
             margin-top: 10px;
@@ -68,24 +64,19 @@
 
             @media(max-width:1000px){
                 width:65%;
-                // overflow: scroll;
-
             }
                 
             .textLabel{
                 margin:30px;
-                // padding-bottom:70px;
             }
 
             .button{
-                // padding:30px;
                 margin:40px;
                 padding:20px;
                 background:#0A9CBC;
                 box-shadow:0px 4px 8px rgba(0, 0, 0, 0.2);
                 border-radius:50%;
                 border: solid 1px #087891;
-                // border: none;
                 color: #FFFFFF;
                 font-size:large;
             }
@@ -94,12 +85,8 @@
                 width:25px;
             }  
         }
-        //    .imgDiv{
-        //         width: 70%;
-        //         height: 20%;
             }
             .aboutUs{             
-                // border:solid black 1px;
                 padding:20px;
                 display: flex;
                 flex-direction: column;
@@ -116,11 +103,9 @@
                 }
         }
     }
-
+    
     .right{
         flex: 0.2;
-        background-color:#f0f5f5;
-        height: 100vh;
     }
 }
  

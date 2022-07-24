@@ -3,7 +3,6 @@ import './landingpage.scss'
 import { BsMic} from "react-icons/bs";
 import ReactPlayer from 'react-player';
 
-
 const LandingPage = () => {
     const[isActive,setIsActive]=useState(false);
     const handleClick=()=>{
@@ -11,7 +10,6 @@ const LandingPage = () => {
     };
     const stopClick=()=>{
         setIsActive(false)
-
     };
     
   return (
@@ -26,7 +24,6 @@ const LandingPage = () => {
                     <p>Read and record the text below.</p>
                     <div className="card">
                         <p className='textLabel'>हामीले  हामीलाई एउटा मद्दत </p>
-                        
                         <button  
                         style={{
                             border: isActive? 'solid 1px #00b33c':'',
