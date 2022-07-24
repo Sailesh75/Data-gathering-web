@@ -5,12 +5,29 @@ import './test.scss'
 
 const Test=()=>{
 
-    const {
-        status,
-        startRecording,
-        stopRecording,
-        mediaBlobUrl,
-      } = useReactMediaRecorder({ audio:true });
+  const {
+    status,
+    startRecording,
+    stopRecording,
+    mediaBlobUrl,
+  } = useReactMediaRecorder({ audio:true ,echoCancellation: true});
+
+  const[isActive,setIsActive]=useState(false);
+  let[count,setCount]=useState(1);
+  const handleClick=()=>{
+      setCount(count+1);
+      if (count===1){
+        setIsActive(current=>!current)
+        startRecording();
+      }
+      else{
+        stopRecording();
+        if (mediaBlobUrl){
+            downloadRecording();
+          }
+         setIsActive(false);
+      }
+  };
 
       //to view(open) the recorded url
       const viewRecording = () => {
@@ -24,11 +41,8 @@ const Test=()=>{
 
      const downloadRecording = () => {
       const pathName = `${downloadRecordingPath}_${recordingNumber}.${downloadRecordingType}`;
+      //pathname=Test_1.wav
       try {
-      // if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-      //   // for IE
-      //   window.navigator.msSaveOrOpenBlob(mediaBlobUrl, pathName);
-      // } else {
         // for Chrome
         const link = document.createElement("a");
         link.href = mediaBlobUrl;
@@ -36,32 +50,12 @@ const Test=()=>{
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-        console.log(`${link}`);
-      
+        console.log(`${link}`);  
       } catch (err) {
         console.error(err);
       }
    };
 
-   const[isActive,setIsActive]=useState(false);
-   let[count,setCount]=useState(1);
-   const handleClick=()=>{
-       setCount(count+1);
-       if (count===1){
-         setIsActive(current=>!current)
-         startRecording();
-       }
-       else{
-         stopRecording();
-         setIsActive(false);
-        //  setTimeout(() => {
-        //  downloadRecording();
-        //  window.location.reload();
-        //  }, 5000);
-       }
-       setCount=0;
-   };
- 
 
     return(
     <div>

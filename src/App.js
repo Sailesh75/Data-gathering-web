@@ -1,13 +1,15 @@
 import LandingPage from "./component/LandingPage";
-import Test from "./component/Test/Test";
+// import Test from "./component/Test/Test";
 // import Hook from "./component/TestDOM/Hook";
+import FinalTest from "./component/Test/FinalTest";
 
 function App() {
   return (
     <div className="App">
         <LandingPage/>
-        <Test/>
+        {/* <Test/> */}
         {/* <Hook/> */}
+        <FinalTest/>
     </div>
   );
 }
