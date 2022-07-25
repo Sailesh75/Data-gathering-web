@@ -1,16 +1,61 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './landingpage.scss'
 import { BsMic} from "react-icons/bs";
 import ReactPlayer from 'react-player';
+import { useReactMediaRecorder, } from "react-media-recorder";
 
-const LandingPage = () => {
-    const[isActive,setIsActive]=useState(false);
-    const handleClick=()=>{
-        setIsActive(current=>!current)
-    };
-    const stopClick=()=>{
-        setIsActive(false)
-    };
+const TestLanding = () => {
+
+    const {status,startRecording,stopRecording,mediaBlobUrl}= useReactMediaRecorder({ audio:true ,echoCancellation: true});
+useEffect(()=>{
+    if(status==='stopped'){
+        try{
+            async function createFile(fileUrl){
+                let response = await fetch(fileUrl);
+                let data = await response.blob();
+                let metadata = {
+                  type: 'voice.wav'
+                };
+                let file = new File([data], "voice.wav", metadata);
+                console.log("file is",file)
+                return file
+                // ... do something with the file or return it
+              }
+
+              //to download the file
+
+            const link = document.createElement("a");   //creating a ankar tag for the link
+            link.href = mediaBlobUrl;                    //a.href
+            link.download='Test_1.wav';                //download the link
+            link.click();
+
+
+               createFile(mediaBlobUrl)
+               .then(resp=>{
+                // HTTP CALL AS A FORM DATA: PS SEND A FILE
+                console.log("HTTP CALL ",resp)     
+               })
+              
+        }catch(err) {
+            console.error(err);
+        }      
+    }  
+},[status])
+
+const[isActive,setIsActive]=useState(false);
+let[count,setCount]=useState(1);
+const handleClick=async ()=>{
+    setCount(count+1);
+    if (count===1){
+    setIsActive(current=>!current)
+    startRecording();
+    }
+    else{
+     stopRecording();
+        setIsActive(false);
+    }
+};
+
   return (
         <div className="top">
             <div className="left">
@@ -26,10 +71,8 @@ const LandingPage = () => {
                         style={{
                             border: isActive? 'solid 1px #00b33c':'',
                             backgroundColor:isActive? '#00b33c':'',  
-                        }}
-                        
-                        onClick={handleClick}
-                        onTouchCancel={stopClick}
+                        }}  
+                        onClick={handleClick}                     
                         className='button'>
                             <BsMic className='mic'/>
                         </button> 
@@ -50,7 +93,6 @@ const LandingPage = () => {
                     className='video'
                     url='https://youtu.be/XXxOfUTD7Bw'/>
 
-                    
                     <p className='aboutText'>
                     <p style={{fontSize:20,fontWeight:500}}>FAQs</p>
                         <span style={{fontWeight:600}}>What is data gathering application?</span>
@@ -75,4 +117,4 @@ const LandingPage = () => {
   )
 }
 
-export default LandingPage;
+export default TestLanding;

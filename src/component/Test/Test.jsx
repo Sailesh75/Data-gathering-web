@@ -4,7 +4,6 @@ import { BsMic} from "react-icons/bs";
 import './test.scss'
 
 const Test=()=>{
-
   const {
     status,
     startRecording,
@@ -55,7 +54,6 @@ const Test=()=>{
         console.error(err);
       }
    };
-
 
     return(
     <div>
