@@ -53,6 +53,7 @@ const handleClick=async ()=>{
     else{
      stopRecording();
         setIsActive(false);
+        setCount(1);    
     }
 };
 
