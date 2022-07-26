@@ -8,14 +8,17 @@
 
     .left{
         flex:0.2;
+        @media (max-width:900px){
+            width: 0px;
+        }
         }
 
     .middle{
         flex: 0.6;
         background-color: rgb(255, 255, 255);
         margin-bottom:20px;
-        @media (max-width:1000px) {  
-            position: fixed;
+        @media (max-width:900px) {  
+            // position: fixed;
             width:100vw;
             overflow: scroll;      
         }
@@ -62,8 +65,8 @@
             flex-wrap: wrap;
             align-content: space-around;
 
-            @media(max-width:1000px){
-                width:65%;
+            @media(max-width:1150px){
+                width:65%; 
             }
                 
             .textLabel{

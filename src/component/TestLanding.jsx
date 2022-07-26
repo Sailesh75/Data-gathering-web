@@ -9,6 +9,7 @@ const TestLanding = () => {
     const {status,startRecording,stopRecording,mediaBlobUrl}= useReactMediaRecorder({ audio:true ,echoCancellation: true});
 useEffect(()=>{
     if(status==='stopped'){
+        console.log("inside avatarr")
         try{
             async function createFile(fileUrl){
                 let response = await fetch(fileUrl);
@@ -24,16 +25,20 @@ useEffect(()=>{
 
               //to download the file
 
-            const link = document.createElement("a");   //creating a ankar tag for the link
-            link.href = mediaBlobUrl;                    //a.href
-            link.download='Test_1.wav';                //download the link
-            link.click();
-
-
+            // const link = document.createElement("a");   //creating a ankar tag for the link
+            // link.href = mediaBlobUrl;                    //a.href
+            // link.download='Test_1.wav';                //download the link
+            // link.click();
                createFile(mediaBlobUrl)
                .then(resp=>{
                 // HTTP CALL AS A FORM DATA: PS SEND A FILE
-                console.log("HTTP CALL ",resp)     
+                console.log(resp)
+                var data = new FormData()
+                data.append('audio', resp)
+                fetch('http://localhost:8000/audio', {
+                    method: 'POST',
+                    body: data
+                  })
                })
               
         }catch(err) {
