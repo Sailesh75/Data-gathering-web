@@ -25,10 +25,10 @@ useEffect(()=>{
 
               //to download the file
 
-            // const link = document.createElement("a");   //creating a ankar tag for the link
-            // link.href = mediaBlobUrl;                    //a.href
-            // link.download='Test_1.wav';                //download the link
-            // link.click();
+            const link = document.createElement("a");   //creating a ankar tag for the link
+            link.href = mediaBlobUrl;                    //a.href
+            link.download='Test_1.wav';                //download the link
+            link.click();
                createFile(mediaBlobUrl)
                .then(resp=>{
                 // HTTP CALL AS A FORM DATA: PS SEND A FILE
