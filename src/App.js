@@ -1,4 +1,4 @@
-import LandingPage from "./component/LandingPage";
+//import LandingPage from "./component/LandingPage";
 // import Test from "./component/Test/Test";
 // import FinalTest from "./component/Test/FinalTest";
 // import UltimateFinal from "./component/Test/UltimateFinal";

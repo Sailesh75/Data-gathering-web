@@ -2,10 +2,16 @@ import React,{useState,useEffect} from 'react'
 import './landingpage.scss'
 import { BsMic} from "react-icons/bs";
 import ReactPlayer from 'react-player';
-import { useReactMediaRecorder, } from "react-media-recorder";
+
+import axios from 'axios';
+import { useReactMediaRecorder } from "react-media-recorder";
 
 const TestLanding = () => {
-
+    axios.get('http://localhost:4000/',{withCredentials:true}).then((err,resp)=>{
+        if(resp){
+            console.log('ok')
+        }
+     });
     const {status,startRecording,stopRecording,mediaBlobUrl}= useReactMediaRecorder({ audio:true ,echoCancellation: true});
 useEffect(()=>{
     if(status==='stopped'){
@@ -33,12 +39,8 @@ useEffect(()=>{
                .then(resp=>{
                 // HTTP CALL AS A FORM DATA: PS SEND A FILE
                 console.log(resp)
-                var data = new FormData()
-                data.append('audio', resp)
-                fetch('http://localhost:8000/audio', {
-                    method: 'POST',
-                    body: data
-                  })
+                //var data = new FormData()
+                
                })
               
         }catch(err) {
@@ -48,6 +50,7 @@ useEffect(()=>{
 },[status])
 
 const[isActive,setIsActive]=useState(false);
+const [text,setText]=useState('xyz')
 let[count,setCount]=useState(1);
 const handleClick=async ()=>{
     setCount(count+1);
@@ -59,6 +62,10 @@ const handleClick=async ()=>{
      stopRecording();
         setIsActive(false);
         setCount(1);    
+        axios.get('http://localhost:4000/gettext',{withCredentials:true}
+        ).then((response)=>{
+            console.log(response.data)
+        setText(response.data)})
     }
 };
 
@@ -72,7 +79,7 @@ const handleClick=async ()=>{
                     <h2 className='please'>Please</h2>
                     <p>Read and record the text below.</p>
                     <div className="card">
-                        <p className='textLabel'>हामीले  हामीलाई एउटा मद्दत </p>
+                        <p className='textLabel'>{text} </p>
                         <button  
                         style={{
                             border: isActive? 'solid 1px #00b33c':'',
